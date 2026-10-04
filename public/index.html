@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6fb">
+  <title>Taskflow — suas tarefas em foco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-icon">✦</span><span>taskflow</span></a>
+      <div class="side-label">Workspace</div>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <a class="nav-link selected" href="#tarefas"><span>▦</span> Visão geral</a>
+        <a class="nav-link" href="#tarefas"><span>☷</span> Minhas tarefas <span class="nav-badge" id="navCount">0</span></a>
+      </nav>
+      <div class="sidebar-note"><span class="note-sparkle">✦</span><strong>Um passo de cada vez</strong><p>Organize suas prioridades e celebre cada tarefa concluída.</p></div>
+      <div class="profile"><div class="profile-avatar">C</div><div><strong>Cauan</strong><span>Meu espaço</span></div><button class="profile-more" aria-label="Mais opções">···</button></div>
+    </aside>
+
+    <main class="main-content" id="tarefas">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Visão geral</strong></div><div class="topbar-actions"><span class="today-label" id="todayLabel"></span><button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar tema escuro" title="Alternar tema"><span id="themeIcon">☾</span></button></div></header>
+      <section class="welcome-row"><div><p class="eyebrow">SEU PAINEL DE PRODUTIVIDADE</p><h1>Bom dia, Cauan <span class="sun">✳</span></h1><p class="welcome-copy">Um novo dia para avançar no que importa.</p></div><div class="welcome-orb" aria-hidden="true"><span>✦</span></div></section>
+
+      <section class="stats-grid" aria-label="Resumo das tarefas">
+        <article class="stat-card stat-total"><div class="stat-heading"><span>Total de tarefas</span><span class="stat-icon">▤</span></div><strong class="stat-number" id="totalCount">0</strong><span class="stat-caption">no seu espaço</span></article>
+        <article class="stat-card stat-pending"><div class="stat-heading"><span>Pendentes</span><span class="stat-icon">◷</span></div><strong class="stat-number" id="pendingCount">0</strong><span class="stat-caption">prontas para avançar</span></article>
+        <article class="stat-card stat-done"><div class="stat-heading"><span>Concluídas</span><span class="stat-icon">✓</span></div><strong class="stat-number" id="doneCount">0</strong><span class="stat-caption">ótimo trabalho!</span></article>
+      </section>
+
+      <section class="task-section">
+        <div class="section-heading"><div><p class="eyebrow">MANTENHA O RITMO</p><h2>Minhas tarefas <span class="heading-count" id="headingCount">0</span></h2></div><button class="primary-button" id="openForm" type="button"><span>＋</span> Nova tarefa</button></div>
+        <form class="task-form" id="taskForm" hidden>
+          <label class="sr-only" for="taskTitle">Título da tarefa</label><input id="taskTitle" name="titulo" maxlength="160" placeholder="O que você precisa fazer?" required>
+          <label class="sr-only" for="taskDescription">Descrição opcional</label><input id="taskDescription" name="descricao" maxlength="500" placeholder="Adicione uma descrição (opcional)">
+          <div class="form-actions"><button class="quiet-button" id="cancelForm" type="button">Cancelar</button><button class="primary-button" type="submit">Salvar tarefa <span>↗</span></button></div>
+        </form>
+        <div class="task-toolbar"><div class="filter-tabs" role="tablist" aria-label="Filtrar tarefas"><button class="filter-tab active" type="button" data-filter="TODAS">Todas</button><button class="filter-tab" type="button" data-filter="PENDENTE">Pendentes</button><button class="filter-tab" type="button" data-filter="CONCLUÍDA">Concluídas</button></div><span class="sort-label"><span class="live-dot"></span> Salvas automaticamente</span></div>
+        <div class="task-list" id="taskList" aria-live="polite"><div class="loading-card">Carregando suas tarefas…</div></div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+      <footer class="footer"><span>Feito para você manter o foco.</span><span class="footer-mark">TASKFLOW <i>✦</i></span></footer>
+    </main>
+  </div>
+</body>
+</html>
